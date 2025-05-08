@@ -60,3 +60,29 @@ def backpropagation(X, y, Z1, A1, Z2, A2, W2):
 
     return dW1, db1, dW2, db2
 
+learning_rate = 0.1
+epochs = 500
+
+for epoch in range(epochs):
+    # Shuffle the data
+    indices = np.random.permutation(X_train.shape[0])
+    X_train_shuffled = X_train[indices]
+    y_train_shuffled = y_train[indices]
+
+    # Forward pass
+    Z1, A1, Z2, A2 = feedforward(X_train_shuffled, W1, b1, W2, b2)
+
+    # Backpropagation
+    dW1, db1, dW2, db2 = backpropagation(X_train_shuffled, y_train_shuffled, Z1, A1, Z2, A2, W2)
+
+    # Update weights
+    W1 -= learning_rate * dW1
+    b1 -= learning_rate * db1
+    W2 -= learning_rate * dW2
+    b2 -= learning_rate * db2
+
+    # Compute loss
+    loss = np.mean(np.square(A2 - y_train_shuffled))
+
+    if epoch % 10 == 0:
+        print(f"Epoch {epoch}: Loss = {loss:.4f}")
