@@ -86,3 +86,10 @@ for epoch in range(epochs):
 
     if epoch % 10 == 0:
         print(f"Epoch {epoch}: Loss = {loss:.4f}")
+
+_, _, _, A2_test = feedforward(X_test, W1, b1, W2, b2)
+predictions = np.argmax(A2_test, axis=1)
+actual = np.argmax(y_test, axis=1)
+
+accuracy = np.mean(predictions == actual)
+print(f"Test Accuracy: {accuracy * 100:.2f}%")
