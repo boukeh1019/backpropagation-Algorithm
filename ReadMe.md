@@ -15,9 +15,12 @@ This project implements a basic feedforward neural network **from scratch using 
 ---
 
 ## 📁 Project Structure
-├── main.py # Main script to train and test the neural network\\
-├── README.md # This file\\
-├── .gitignore # To ignore virtual environment and other unwanted files\\
+├── main.py # Main script to train and test the neural network
+
+├── README.md # This file
+
+├── .gitignore # To ignore virtual environment and other unwanted files
+
 └── requirements.txt # List of Python dependencies\\
 
 ## 🚀 Getting Started
