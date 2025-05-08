@@ -11,6 +11,16 @@ def sigmoid_derivative(z):
     s = sigmoid(z)
     return s * (1 - s)
 
+def softmax(z):
+    exp_z = np.exp(z - np.max(z, axis=1, keepdims=True))  # stability
+    return exp_z / np.sum(exp_z, axis=1, keepdims=True)
+
+
+# Cross-entropy loss
+def cross_entropy_loss(y_pred, y_true):
+    epsilon = 1e-8  # avoid log(0)
+    return -np.mean(np.sum(y_true * np.log(y_pred + epsilon), axis=1))
+
 # Feedforward
 def feedforward(X, W1, b1, W2, b2):
     Z1 = np.dot(X, W1) + b1
