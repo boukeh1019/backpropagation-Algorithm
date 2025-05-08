@@ -50,3 +50,10 @@ pip install numpy scikit-learn
 Python backprop_algo.py
 
 
+📈 Output
+Epoch 0: Loss = 0.2847
+...
+Epoch 490: Loss = 0.0421
+Test Accuracy: 96.67%
+
+
