@@ -36,3 +36,11 @@ b1 = np.zeros((1, hidden_size))
 W2 = np.random.randn(hidden_size, output_size) * 0.1
 b2 = np.zeros((1, output_size))
 
+def feedforward(X, W1, b1, W2, b2):
+    Z1 = np.dot(X, W1) + b1
+    A1 = sigmoid(Z1)
+
+    Z2 = np.dot(A1, W2) + b2
+    A2 = sigmoid(Z2)
+
+    return Z1, A1, Z2, A2
